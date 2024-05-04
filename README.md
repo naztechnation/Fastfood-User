@@ -1,4 +1,4 @@
-# sixam_mart
+# FastFood
 
 A new Flutter application.
 
