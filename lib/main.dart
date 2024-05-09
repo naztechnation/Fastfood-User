@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:meta_seo/meta_seo.dart';
 import 'package:sixam_mart/features/auth/controllers/auth_controller.dart';
 import 'package:sixam_mart/features/cart/controllers/cart_controller.dart';
@@ -102,10 +103,39 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
+
+Future<void> _requestLocation() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    // Check if location service is enabled
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      // If not enabled, prompt user to enable it
+      serviceEnabled = await Geolocator.openLocationSettings();
+      if (!serviceEnabled) {
+        return; // User canceled or could not enable location services
+      }
+    }
+
+    // Check if location permission is granted
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      // If permission is denied, request it from the user
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        // If permission is still denied, show a message or handle it accordingly
+        return; // User denied the request
+      }
+    }
+
+    
+  
+}
   @override
   void initState() {
     super.initState();
-
+_requestLocation();
     _route();
   }
 

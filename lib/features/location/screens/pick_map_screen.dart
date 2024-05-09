@@ -213,9 +213,9 @@ class _PickMapScreenState extends State<PickMapScreen> {
               initialCameraPosition: CameraPosition(
                 target: widget.fromAddAddress ? LatLng(locationController.position.latitude, locationController.position.longitude)
                     : _initialPosition,
-                zoom: 16,
+                zoom: 26,
               ),
-              minMaxZoomPreference: const MinMaxZoomPreference(0, 16),
+              minMaxZoomPreference: const MinMaxZoomPreference(0, 26),
               myLocationButtonEnabled: false,
               onMapCreated: (GoogleMapController mapController) {
                 _mapController = mapController;
@@ -224,7 +224,7 @@ class _PickMapScreenState extends State<PickMapScreen> {
                 }
               },
               scrollGesturesEnabled: !Get.isDialogOpen!,
-              zoomControlsEnabled: false,
+              zoomControlsEnabled: true,
               onCameraMove: (CameraPosition cameraPosition) {
                 _cameraPosition = cameraPosition;
               },
