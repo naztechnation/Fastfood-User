@@ -302,8 +302,9 @@ class SignUpScreenState extends State<SignUpScreen> {
 
     String numberWithCountryCode = countryCode+number;
     PhoneValid phoneValid = await CustomValidator.isPhoneValid(numberWithCountryCode);
-    numberWithCountryCode = phoneValid.phone;
+    numberWithCountryCode = removePlus(phoneValid.phone);
 
+    
     if (firstName.isEmpty) {
       showCustomSnackBar('enter_your_first_name'.tr);
     }else if (lastName.isEmpty) {
@@ -324,7 +325,7 @@ class SignUpScreenState extends State<SignUpScreen> {
       showCustomSnackBar('confirm_password_does_not_matched'.tr);
     }else {
       SignUpBodyModel signUpBody = SignUpBodyModel(
-        fName: firstName, lName: lastName, email: email, phone: numberWithCountryCode,
+        fName: firstName, lName: lastName, email: email, phone: numberWithCountryCode.trim(),
         password: password, refCode: referCode,
       );
       authController.registration(signUpBody).then((status) async {
@@ -345,4 +346,12 @@ class SignUpScreenState extends State<SignUpScreen> {
       });
     }
   }
+
+  String removePlus(String mobileNumber) {
+  if (mobileNumber.startsWith('+')) {
+    return mobileNumber.substring(1);
+  } else {
+    return mobileNumber;
+  }
+}
 }

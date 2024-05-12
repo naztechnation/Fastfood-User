@@ -39,7 +39,7 @@ class VerificationScreenState extends State<VerificationScreen> {
   void initState() {
     super.initState();
 
-    _number = widget.number!.startsWith('+') ? widget.number : '+${widget.number!.substring(1, widget.number!.length)}';
+    _number = widget.number!.startsWith('') ? '${widget.number}' : '+${widget.number!.substring(1, widget.number!.length)}';
     _startTimer();
   }
 

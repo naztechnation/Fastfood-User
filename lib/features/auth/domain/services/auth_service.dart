@@ -19,6 +19,8 @@ class AuthService implements AuthServiceInterface{
   @override
   Future<ResponseModel> registration(SignUpBodyModel signUpBody, bool isCustomerVerificationOn) async {
     ResponseModel responseModel = await authRepositoryInterface.registration(signUpBody);
+
+      
     if(responseModel.isSuccess) {
       if(!isCustomerVerificationOn) {
         authRepositoryInterface.saveUserToken(responseModel.message!);
