@@ -33,7 +33,9 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
       endDrawer: const MenuDrawer(),endDrawerEnableOpenDragGesture: false,
       body: SafeArea(
         child: GetBuilder<LocalizationController>(builder: (localizationController) {
-          return Column(children: [
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
             WebScreenTitleWidget(title: 'language'.tr),
             Expanded(child: Center(
               child: SingleChildScrollView(
@@ -55,23 +57,26 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
 
                       Directionality(
                         textDirection: TextDirection.ltr,
-                        child: GridView.builder(
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: ResponsiveHelper.isDesktop(context) ? 2 : ResponsiveHelper.isTab(context) ? 3 : 2,
-                            childAspectRatio: ResponsiveHelper.isDesktop(context) ? 6 : (1/1),
-                            mainAxisSpacing: Dimensions.paddingSizeDefault,
-                            crossAxisSpacing: Dimensions.paddingSizeDefault,
-                          ),
-                          itemCount: localizationController.languages.length,
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
-                          itemBuilder: (context, index) => ResponsiveHelper.isDesktop(context) ? WebLanguageWidget(
-                            languageModel: localizationController.languages[index],
-                            localizationController: localizationController, index: index,
-                          ) : LanguageWidget(
-                            languageModel: localizationController.languages[index],
-                            localizationController: localizationController, index: index,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: GridView.builder(
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: ResponsiveHelper.isDesktop(context) ? 2 : ResponsiveHelper.isTab(context) ? 3 : 2,
+                              childAspectRatio: ResponsiveHelper.isDesktop(context) ? 6 : (1/1),
+                              mainAxisSpacing: Dimensions.paddingSizeDefault,
+                              crossAxisSpacing: Dimensions.paddingSizeDefault,
+                            ),
+                            itemCount: localizationController.languages.length,
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
+                            itemBuilder: (context, index) => ResponsiveHelper.isDesktop(context) ? WebLanguageWidget(
+                              languageModel: localizationController.languages[index],
+                              localizationController: localizationController, index: index,
+                            ) : LanguageWidget(
+                              languageModel: localizationController.languages[index],
+                              localizationController: localizationController, index: index,
+                            ),
                           ),
                         ),
                       ),
