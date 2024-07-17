@@ -103,10 +103,10 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
   void _forgetPass(String countryCode) async {
     String phone = _numberController.text.trim();
 
-    String numberWithCountryCode = countryCode+phone;
+    String numberWithCountryCode = countryCode.replaceFirst('+', '') + phone;
+     
     PhoneValid phoneValid = await CustomValidator.isPhoneValid(numberWithCountryCode);
     numberWithCountryCode = phoneValid.phone;
-
     if (phone.isEmpty) {
       showCustomSnackBar('enter_phone_number'.tr);
     }else if (!phoneValid.isValid) {

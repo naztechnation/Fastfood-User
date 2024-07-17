@@ -125,7 +125,7 @@ class _NewPassScreenState extends State<NewPassScreen> {
           }
         });
       }else {
-        Get.find<VerificationController>().resetPassword(widget.resetToken, '+${widget.number!.trim()}', password, confirmPassword).then((value) {
+        Get.find<VerificationController>().resetPassword(widget.resetToken, '${widget.number!.trim()}', password, confirmPassword).then((value) {
           if (value.isSuccess) {
             Get.find<AuthController>().login('+${widget.number!.trim()}', password).then((value) async {
               Get.offAllNamed(RouteHelper.getSignInRoute('reset-password'));

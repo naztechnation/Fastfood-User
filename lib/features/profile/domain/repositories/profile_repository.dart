@@ -47,7 +47,7 @@ class ProfileRepository implements ProfileRepositoryInterface {
       'email': userInfoModel.email,
       'password': userInfoModel.password,
     };
-    Response response = await apiClient.postData(AppConstants.updateProfileUri, body, handleError: false);
+    Response response = await apiClient.postData(AppConstants.resetPasswordUri, body, handleError: false);
     if (response.statusCode == 200) {
       responseModel = ResponseModel(true, response.body["message"]);
     } else {

@@ -266,7 +266,8 @@ class SignInScreenState extends State<SignInScreen> {
   void _login(AuthController authController, String countryDialCode) async {
     String phone = _phoneController.text.trim();
     String password = _passwordController.text.trim();
-    String numberWithCountryCode = countryDialCode+phone;
+     String numberWithCountryCode = countryDialCode.replaceFirst('+', '') + phone;
+     
     PhoneValid phoneValid = await CustomValidator.isPhoneValid(numberWithCountryCode);
     numberWithCountryCode = phoneValid.phone;
 
