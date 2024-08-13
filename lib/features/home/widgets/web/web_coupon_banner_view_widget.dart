@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as slider;
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +20,7 @@ class WebCouponBannerViewWidget extends StatefulWidget {
 
 class _WebCouponBannerViewWidgetState extends State<WebCouponBannerViewWidget> {
 
-  final CarouselController carouselController = CarouselController();
+  final slider.CarouselController carouselController = slider.CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,10 @@ class _WebCouponBannerViewWidgetState extends State<WebCouponBannerViewWidget> {
         padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeExtraLarge),
         child: Column(children: [
 
-          CarouselSlider.builder(
+          slider.CarouselSlider.builder(
             carouselController: carouselController,
             itemCount: couponController.couponList!.length,
-            options: CarouselOptions(
+            options: slider.CarouselOptions(
               height: 135,
               enlargeCenterPage: true,
               disableCenter: true,

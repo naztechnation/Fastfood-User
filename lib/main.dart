@@ -81,14 +81,14 @@ Future<void> main() async {
     }
   } catch (_) {}
 
-  if (ResponsiveHelper.isWeb()) {
-    await FacebookAuth.instance.webAndDesktopInitialize(
-      appId: "380903914182154",
-      cookie: true,
-      xfbml: true,
-      version: "v15.0",
-    );
-  }
+  // if (ResponsiveHelper.isWeb()) {
+  //   await FacebookAuth.instance.webAndDesktopInitialize(
+  //     appId: "380903914182154",
+  //     cookie: true,
+  //     xfbml: true,
+  //     version: "v15.0",
+  //   );
+  // }
   runApp(MyApp(languages: languages, body: body));
 }
 

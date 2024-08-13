@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as slider;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
@@ -18,7 +18,7 @@ class MiddleSectionBannerView extends StatefulWidget {
 
 class _MiddleSectionBannerViewState extends State<MiddleSectionBannerView> {
 
-  final CarouselController carouselController = CarouselController();
+  final slider.CarouselController carouselController = slider.CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,10 @@ class _MiddleSectionBannerViewState extends State<MiddleSectionBannerView> {
         padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault, horizontal: Dimensions.paddingSizeSmall),
         child: Column(children: [
 
-            CarouselSlider.builder(
+            slider.CarouselSlider.builder(
               carouselController: carouselController,
               itemCount: campaignController.basicCampaignList!.length,
-              options: CarouselOptions(
+              options: slider.CarouselOptions(
                 height: isPharmacy ? 187 : 135,
                 //autoPlay: true,
                 enlargeCenterPage: true,
@@ -108,9 +108,9 @@ class MiddleSectionBannerShimmerView extends StatelessWidget {
 
         Stack(
           children: [
-            CarouselSlider.builder(
+            slider.CarouselSlider.builder(
               itemCount: 3,
-              options: CarouselOptions(
+              options: slider.CarouselOptions(
                 height: isPharmacy ? 187 : 135,
                 enlargeCenterPage: true,
                 disableCenter: true,

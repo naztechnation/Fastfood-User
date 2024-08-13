@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as slider;
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +20,7 @@ class PromoCodeBannerView extends StatefulWidget {
 }
 
 class _PromoCodeBannerViewState extends State<PromoCodeBannerView> {
-  final CarouselController carouselController = CarouselController();
+  final slider.CarouselController carouselController = slider.CarouselController();
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CouponController>(builder: (couponController) {
@@ -29,10 +29,10 @@ class _PromoCodeBannerViewState extends State<PromoCodeBannerView> {
         padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault, horizontal: Dimensions.paddingSizeSmall),
         child: Column(children: [
 
-            CarouselSlider.builder(
+            slider.CarouselSlider.builder(
               carouselController: carouselController,
               itemCount: couponController.couponList!.length,
-              options: CarouselOptions(
+              options: slider.CarouselOptions(
                 height: 135,
                 autoPlay: true,
                 enlargeCenterPage: true,
@@ -146,9 +146,9 @@ class PromoCodeShimmerView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault, horizontal: Dimensions.paddingSizeSmall),
       child: Column(children: [
 
-        CarouselSlider.builder(
+        slider.CarouselSlider.builder(
           itemCount: 5,
-          options: CarouselOptions(
+          options: slider.CarouselOptions(
             height: 135,
             enlargeCenterPage: true,
             disableCenter: true,

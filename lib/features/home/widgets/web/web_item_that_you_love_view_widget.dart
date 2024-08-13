@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as slider;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
@@ -24,7 +24,7 @@ class WebItemThatYouLoveViewWidget extends StatefulWidget {
 }
 
 class _WebItemThatYouLoveViewWidgetState extends State<WebItemThatYouLoveViewWidget> {
-  final CarouselController carouselController = CarouselController();
+  final slider.CarouselController carouselController = slider.CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +40,10 @@ class _WebItemThatYouLoveViewWidgetState extends State<WebItemThatYouLoveViewWid
               child: Text('item_that_you_love'.tr, style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge)),
             ),
 
-            !isShop ? CarouselSlider.builder(
+            !isShop ? slider.CarouselSlider.builder(
               itemCount: recommendItems.length,
               carouselController: carouselController,
-              options: CarouselOptions(
+              options: slider.CarouselOptions(
                 height: 400,
                 enlargeCenterPage: true,
                 disableCenter: true,
@@ -507,9 +507,9 @@ class WebItemThatYouLoveShimmerView extends StatelessWidget {
           child: Text('item_that_you_love'.tr, style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge)),
         ),
 
-        CarouselSlider.builder(
+        slider.CarouselSlider.builder(
           itemCount: 5,
-          options: CarouselOptions(
+          options: slider.CarouselOptions(
             height: 400,
             enlargeCenterPage: true,
             disableCenter: true,

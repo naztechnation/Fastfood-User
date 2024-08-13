@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as slider;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
@@ -19,7 +19,7 @@ class WebVisitAgainView extends StatefulWidget {
 }
 
 class _WebVisitAgainViewState extends State<WebVisitAgainView> {
-  final CarouselController carouselController = CarouselController();
+  final slider.CarouselController carouselController = slider.CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +47,10 @@ class _WebVisitAgainViewState extends State<WebVisitAgainView> {
               Text('get_your_recent_purchase_from_the_shop_you_recently_visited'.tr, style: robotoRegular.copyWith(color: Theme.of(context).cardColor, fontSize: Dimensions.fontSizeSmall)),
               const SizedBox(height: Dimensions.paddingSizeSmall),
 
-              CarouselSlider.builder(
+              slider.CarouselSlider.builder(
                 carouselController: carouselController,
                 itemCount: stores.length,
-                options: CarouselOptions(
+                options: slider.CarouselOptions(
                   aspectRatio: 6,
                   enlargeCenterPage: true,
                   disableCenter: true,
@@ -132,9 +132,9 @@ class WebVisitAgainShimmerView extends StatelessWidget {
               ),
               const SizedBox(height: Dimensions.paddingSizeSmall),
 
-              CarouselSlider.builder(
+              slider.CarouselSlider.builder(
                 itemCount: 5,
-                options: CarouselOptions(
+                options: slider.CarouselOptions(
                   aspectRatio: 6,
                   enlargeCenterPage: true,
                   disableCenter: true,
